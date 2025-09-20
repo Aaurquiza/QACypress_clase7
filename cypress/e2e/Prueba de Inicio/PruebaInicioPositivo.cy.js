@@ -1,6 +1,3 @@
-/* Genera error al seleccinar la localidad por duplicidad en el nombre*/
-
-
 describe('Registro de usuario', () => {
   it('Registrar nuevo usuario', () => {
     cy.visit('https://ticketazo.com.ar');
@@ -10,11 +7,12 @@ describe('Registro de usuario', () => {
     cy.get('[data-cy="input-apellido"]').type('logueo');
     cy.get('[data-cy="input-telefono"]').type('1500150015');
     cy.get('[data-cy="input-dni"]').type('20202020'); //siguiente provincia
+    
     cy.get('[data-cy="select-provincia"]').click(); // Abre el dropdown
     cy.contains('.cursor-pointer', 'Córdoba').click(); // Selecciona la provincia
     
-    cy.get('[data-cy="select-localidad"]').click(); //.type('Córdoba')
-    cy.contains('.cursor-pointer', 'Córdoba').click();
+    cy.get('[data-cy="select-localidad"]').click().type('Anisacate');
+    cy.contains('.cursor-pointer', 'Anisacate').click();
     // Seleccionar la fecha de nacimiento
     cy.get('[data-cy="input-fecha-nacimiento"]').click(); 
     cy.contains('dd').type('10'); // Seleccionar el dia
