@@ -5,6 +5,9 @@
         cy.get('[data-cy="feature-autenticacion"] > .flex > .ml-3').click();*/
 
     
+/* Genera error al seleccinar la localidad por duplicidad en el nombre*/
+
+
 describe('Registro de usuario', () => {
   it('Registrar nuevo usuario', () => {
     cy.visit('https://vps-3696213-x.dattaweb.com/');
@@ -18,7 +21,8 @@ describe('Registro de usuario', () => {
     cy.get('[data-cy="select-provincia"]').click(); // Abre el dropdown
     cy.contains('.cursor-pointer', 'Córdoba').click(); // Selecciona la opción
     // Seleccionar la localidad
-    cy.get('[data-cy="select-localidad"]').click().type('Córdoba');
+    
+    cy.get('[data-cy="select-localidad"]').click() //.type('Córdoba');
     cy.contains('.cursor-pointer', 'Córdoba').click();
     // Seleccionar la fecha de nacimiento
     cy.get('[data-cy="input-fecha-nacimiento"]').click(); 
@@ -31,7 +35,7 @@ describe('Registro de usuario', () => {
     // Completar la contraseña
     cy.get('[data-cy="input-password"]').type('Gmail12.');
     cy.get('[data-cy="input-repetir-password"]').type('Gmail12.');
-    //******* */ Paso 4 Hacer click en el botón de registro
+    // Paso 4 Hacer click en el botón de registro
     cy.get('[data-cy="btn-registrarse"]').click();
 
 
